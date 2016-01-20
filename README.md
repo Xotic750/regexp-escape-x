@@ -1,27 +1,26 @@
-<a name="module_noop-x"></a>
-## noop-x
-<a href="https://travis-ci.org/Xotic750/noop-x"
+<a name="module_regexp-escape-x"></a>
+## regexp-escape-x
+<a href="https://travis-ci.org/Xotic750/regexp-escape-x"
 title="Travis status">
-<img src="https://travis-ci.org/Xotic750/noop-x.svg?branch=master"
+<img src="https://travis-ci.org/Xotic750/regexp-escape-x.svg?branch=master"
 alt="Travis status" height="18">
 </a>
-<a href="https://david-dm.org/Xotic750/noop-x"
+<a href="https://david-dm.org/Xotic750/regexp-escape-x"
 title="Dependency status">
-<img src="https://david-dm.org/Xotic750/noop-x.svg"
+<img src="https://david-dm.org/Xotic750/regexp-escape-x.svg"
 alt="Dependency status" height="18"/>
 </a>
-<a href="https://david-dm.org/Xotic750/noop-x#info=devDependencies"
+<a href="https://david-dm.org/Xotic750/regexp-escape-x#info=devDependencies"
 title="devDependency status">
-<img src="https://david-dm.org/Xotic750/noop-x/dev-status.svg"
+<img src="https://david-dm.org/Xotic750/regexp-escape-x/dev-status.svg"
 alt="devDependency status" height="18"/>
 </a>
-<a href="https://badge.fury.io/js/noop-x" title="npm version">
-<img src="https://badge.fury.io/js/noop-x.svg"
+<a href="https://badge.fury.io/js/regexp-escape-x" title="npm version">
+<img src="https://badge.fury.io/js/regexp-escape-x.svg"
 alt="npm version" height="18">
 </a>
 
-noop module. Performs no operation but returns a constant `undefined`
-inherently.
+regexpEscape module.
 
 <h2>ECMAScript compatibility shims for legacy JavaScript engines</h2>
 `es5-shim.js` monkey-patches a JavaScript context to contain all EcmaScript 5
@@ -40,21 +39,25 @@ es5-shim.js to be able to work properly.
 `es6.shim.js` provides compatibility shims so that legacy JavaScript engines
 behave as closely as possible to ECMAScript 6 (Harmony).
 
-**Version**: 1.0.9  
+**Version**: 1.0.0  
 **Author:** Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
-<a name="exp_module_noop-x--module.exports"></a>
-### `module.exports()` ⏏
-Performs no operation but returns a constant `undefined` inherently.
+<a name="exp_module_regexp-escape-x--module.exports"></a>
+### `module.exports(string)` ⇒ <code>string</code> ⏏
+Method to safely escape `RegExp` special tokens for use in `new RegExp`.
 
 **Kind**: Exported function  
+**Returns**: <code>string</code> - The escaped string.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| string | <code>string</code> | The string to be escaped. |
+
 **Example**  
 ```js
-var noop = require('noop-x');
-
-noop(); // undefined
-noop(Number.MIN_VALUE); // undefined
-noop('abc'); // undefined
-noop(true); // undefined
+var regexpEscape = require('regexp-escape-x');
+var str = 'hello. how are you?';
+var regex = new RegExp(regexpEscape(str), 'g');
+String(regex); // '/hello\. how are you\?/g'
 ```
