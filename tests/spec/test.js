@@ -1,14 +1,18 @@
-/*jslint maxlen:80, es6:false, white:true */
+/* jslint maxlen:80, es6:true, white:true */
 
-/*jshint bitwise:true, camelcase:true, curly:true, eqeqeq:true, forin:true,
-  freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
-  nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
-  es3:true, esnext:false, plusplus:true, maxparams:1, maxdepth:2,
-  maxstatements:11, maxcomplexity:3 */
+/* jshint bitwise:true, camelcase:true, curly:true, eqeqeq:true, forin:true,
+   freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
+   nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
+   es3:false, esnext:true, plusplus:true, maxparams:1, maxdepth:2,
+   maxstatements:12, maxcomplexity:4 */
 
-/*global JSON:true, expect, module, require, describe, it, returnExports */
+/* eslint strict: 1, max-lines: 1, symbol-description: 1, max-nested-callbacks: 1,
+   max-statements: 1 */
 
-(function () {
+/* global JSON:true, expect, module, require, describe, it, returnExports */
+
+(function () { // eslint-disable-line no-extra-semi
+
   'use strict';
 
   var regexpEscape;
@@ -20,6 +24,13 @@
     }
     require('json3').runInContext(null, JSON);
     require('es6-shim');
+    var es7 = require('es7-shim');
+    Object.keys(es7).forEach(function (key) {
+      var obj = es7[key];
+      if (typeof obj.shim === 'function') {
+        obj.shim();
+      }
+    });
     regexpEscape = require('../../index.js');
   } else {
     regexpEscape = returnExports;
@@ -55,9 +66,11 @@
         '\uD834\uDF06.'
       ];
       strings.forEach(function (str) {
-        expect(regexpEscape({ toString: function () {
-          return str;
-        } })).toBe(regexpEscape(str));
+        expect(regexpEscape({
+          toString: function () {
+            return str;
+          }
+        })).toBe(regexpEscape(str));
       });
     });
   });
