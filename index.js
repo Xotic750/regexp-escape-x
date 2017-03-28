@@ -26,7 +26,7 @@
  *
  * @see {@link https://github.com/benjamingr/RegExp.escape|RegExp.escape}
  *
- * @version 1.1.1
+ * @version 1.2.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -55,7 +55,7 @@
    * var regex = new RegExp(regexpEscape(str), 'g');
    * String(regex); // '/hello\. how are you\?/g'
    */
-  module.exports = function regexpEscape(string) {
+  module.exports = function RegExpEscape(string) {
     return $toString(string).replace(syntaxChars, '\\$&');
   };
 }());
