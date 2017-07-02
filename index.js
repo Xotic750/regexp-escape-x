@@ -26,36 +26,29 @@
  *
  * @see {@link https://github.com/benjamingr/RegExp.escape|RegExp.escape}
  *
- * @version 1.2.0
+ * @version 1.3.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
  * @module regexp-escape-x
  */
 
-/* eslint strict: 1 */
+'use strict';
 
-/* global module */
+var $toString = require('to-string-x');
+var syntaxChars = /[\^$\\.*+?()[\]{}|]/g;
 
-;(function () { // eslint-disable-line no-extra-semi
-
-  'use strict';
-
-  var $toString = require('to-string-x');
-  var syntaxChars = /[\^$\\.*+?()[\]{}|]/g;
-
-  /**
-   * Method to safely escape `RegExp` special tokens for use in `new RegExp`.
-   *
-   * @param {string} string The string to be escaped.
-   * @return {string} The escaped string.
-   * @example
-   * var regexpEscape = require('regexp-escape-x');
-   * var str = 'hello. how are you?';
-   * var regex = new RegExp(regexpEscape(str), 'g');
-   * String(regex); // '/hello\. how are you\?/g'
-   */
-  module.exports = function RegExpEscape(string) {
-    return $toString(string).replace(syntaxChars, '\\$&');
-  };
-}());
+/**
+ * Method to safely escape `RegExp` special tokens for use in `new RegExp`.
+ *
+ * @param {string} string - The string to be escaped.
+ * @returns {string} The escaped string.
+ * @example
+ * var regexpEscape = require('regexp-escape-x');
+ * var str = 'hello. how are you?';
+ * var regex = new RegExp(regexpEscape(str), 'g');
+ * String(regex); // '/hello\. how are you\?/g'
+ */
+module.exports = function RegExpEscape(string) {
+  return $toString(string).replace(syntaxChars, '\\$&');
+};
