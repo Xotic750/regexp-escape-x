@@ -1,7 +1,7 @@
 /**
  * @file ECMAScript proposed RegExp.escape.
  * @see {@link https://github.com/benjamingr/RegExp.escape|RegExp.escape}
- * @version 1.4.0
+ * @version 1.4.1
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -10,7 +10,7 @@
 
 'use strict';
 
-var $toString = require('to-string-x');
+var toStr = require('to-string-x');
 var syntaxChars = /[\^$\\.*+?()[\]{}|]/g;
 
 /**
@@ -24,6 +24,6 @@ var syntaxChars = /[\^$\\.*+?()[\]{}|]/g;
  * var regex = new RegExp(regexpEscape(str), 'g');
  * String(regex); // '/hello\. how are you\?/g'
  */
-module.exports = function RegExpEscape(string) {
-  return $toString(string).replace(syntaxChars, '\\$&');
+module.exports = function regExpEscape(string) {
+  return toStr(string).replace(syntaxChars, '\\$&');
 };
