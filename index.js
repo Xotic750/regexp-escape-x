@@ -1,7 +1,7 @@
 /**
  * @file ECMAScript proposed RegExp.escape.
  * @see {@link https://github.com/benjamingr/RegExp.escape|RegExp.escape}
- * @version 1.4.1
+ * @version 2.0.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -10,20 +10,23 @@
 
 'use strict';
 
-var toStr = require('to-string-x');
+var requireCoercibleToString = require('require-coercible-to-string-x');
 var syntaxChars = /[\^$\\.*+?()[\]{}|]/g;
+var replace = ''.replace;
 
 /**
  * Method to safely escape `RegExp` special tokens for use in `new RegExp`.
  *
  * @param {string} string - The string to be escaped.
+ * @throws {TypeError} If string is null or undefined or not coercible.
  * @returns {string} The escaped string.
  * @example
  * var regexpEscape = require('regexp-escape-x');
+ *
  * var str = 'hello. how are you?';
  * var regex = new RegExp(regexpEscape(str), 'g');
  * String(regex); // '/hello\. how are you\?/g'
  */
 module.exports = function regExpEscape(string) {
-  return toStr(string).replace(syntaxChars, '\\$&');
+  return replace.call(requireCoercibleToString(string), syntaxChars, '\\$&');
 };

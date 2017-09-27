@@ -24,7 +24,7 @@
 ECMAScript proposed RegExp.escape.
 
 **See**: [RegExp.escape](https://github.com/benjamingr/RegExp.escape)  
-**Version**: 1.4.1  
+**Version**: 2.0.0  
 **Author**: Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
@@ -35,6 +35,10 @@ Method to safely escape `RegExp` special tokens for use in `new RegExp`.
 
 **Kind**: Exported function  
 **Returns**: <code>string</code> - The escaped string.  
+**Throws**:
+
+- <code>TypeError</code> If string is null or undefined or not coercible.
+
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -43,6 +47,7 @@ Method to safely escape `RegExp` special tokens for use in `new RegExp`.
 **Example**  
 ```js
 var regexpEscape = require('regexp-escape-x');
+
 var str = 'hello. how are you?';
 var regex = new RegExp(regexpEscape(str), 'g');
 String(regex); // '/hello\. how are you\?/g'

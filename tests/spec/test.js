@@ -21,26 +21,44 @@ if (typeof module === 'object' && module.exports) {
   regexpEscape = returnExports;
 }
 
+var hasSymbol = typeof Symbol === 'function' && typeof Symbol('') === 'symbol';
+var ifSymbolIt = hasSymbol ? it : xit;
+
 describe('regexpEscape', function () {
+  it('is a function', function () {
+    expect(typeof regexpEscape).toBe('function');
+  });
+
+  it('should throw when target is null or undefined', function () {
+    expect(function () {
+      regexpEscape();
+    }).toThrow();
+
+    expect(function () {
+      regexpEscape(void 0);
+    }).toThrow();
+
+    expect(function () {
+      regexpEscape(null);
+    }).toThrow();
+  });
+
   it('simple strings', function () {
     var strings = [
       'The Quick Brown Fox',
       'hello there',
       ''
     ];
+
     strings.forEach(function (str) {
-      expect(regexpEscape(str)).toBe(
-        str,
-        JSON.stringify(str) + ' regexpEscapes to itself.'
-      );
+      expect(regexpEscape(str)).toBe(str, JSON.stringify(str) + ' regexpEscapes to itself.');
     });
   });
 
   it('strings that need escaping', function () {
     expect(regexpEscape('hi. how are you?')).toBe('hi\\. how are you\\?');
     var syntaxCharacters = '^$\\.*+?()[]{}|';
-    expect(regexpEscape(syntaxCharacters).length)
-      .toBe(syntaxCharacters.length * 2);
+    expect(regexpEscape(syntaxCharacters).length).toBe(syntaxCharacters.length * 2);
     expect(regexpEscape('\uD834\uDF06.')).toBe('\uD834\uDF06\\.');
   });
 
@@ -50,6 +68,7 @@ describe('regexpEscape', function () {
       '^$\\.*+?()[]{}|',
       '\uD834\uDF06.'
     ];
+
     strings.forEach(function (str) {
       expect(regexpEscape({
         toString: function () {
@@ -57,5 +76,37 @@ describe('regexpEscape', function () {
         }
       })).toBe(regexpEscape(str));
     });
+  });
+
+  it('should return a string for everything', function () {
+    var values = [
+      true,
+      'abc',
+      1,
+      [],
+      /r/
+    ];
+
+    var expected = values.map(String);
+    var actual = values.map(regexpEscape);
+    expect(actual).toEqual(expected);
+  });
+
+  it('should throw for Object.create(null)', function () {
+    expect(function () {
+      regexpEscape(Object.create(null));
+    }).toThrow();
+  });
+
+  ifSymbolIt('should throw for Symbol', function () {
+    var sym = Symbol('foo');
+    expect(function () {
+      regexpEscape(sym);
+    }).toThrow();
+
+    var symObj = Object(sym);
+    expect(function () {
+      regexpEscape(Object(symObj));
+    }).toThrow();
   });
 });
