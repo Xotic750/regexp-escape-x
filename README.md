@@ -24,7 +24,7 @@
 ECMAScript proposed RegExp.escape.
 
 **See**: [RegExp.escape](https://github.com/benjamingr/RegExp.escape)  
-**Version**: 2.0.1  
+**Version**: 2.0.2  
 **Author**: Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  

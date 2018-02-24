@@ -1,7 +1,7 @@
 /**
  * @file ECMAScript proposed RegExp.escape.
  * @see {@link https://github.com/benjamingr/RegExp.escape|RegExp.escape}
- * @version 2.0.1
+ * @version 2.0.2
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
