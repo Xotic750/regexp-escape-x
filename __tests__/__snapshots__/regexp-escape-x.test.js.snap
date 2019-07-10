@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`regexpEscape should throw for Object.create(null) 1`] = `"Cannot convert object to primitive value"`;
+
+exports[`regexpEscape should throw for Symbol 1`] = `"Cannot convert a Symbol value to a string"`;
+
+exports[`regexpEscape should throw for Symbol 2`] = `"Cannot convert a Symbol value to a string"`;
+
+exports[`regexpEscape should throw when target is null or undefined 1`] = `"Cannot call method on undefined"`;
+
+exports[`regexpEscape should throw when target is null or undefined 2`] = `"Cannot call method on undefined"`;
+
+exports[`regexpEscape should throw when target is null or undefined 3`] = `"Cannot call method on null"`;

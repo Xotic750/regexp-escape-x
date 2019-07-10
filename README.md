@@ -21,16 +21,15 @@
 <a name="module_regexp-escape-x"></a>
 
 ## regexp-escape-x
+
 ECMAScript proposed RegExp.escape.
 
-**See**: [RegExp.escape](https://github.com/benjamingr/RegExp.escape)  
-**Version**: 2.0.2  
-**Author**: Xotic750 <Xotic750@gmail.com>  
-**License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
-**Copyright**: Xotic750  
+**See**: [RegExp.escape](https://github.com/benjamingr/RegExp.escape)
+
 <a name="exp_module_regexp-escape-x--module.exports"></a>
 
 ### `module.exports(string)` ⇒ <code>string</code> ⏏
+
 Method to safely escape `RegExp` special tokens for use in `new RegExp`.
 
 **Kind**: Exported function  
@@ -39,16 +38,16 @@ Method to safely escape `RegExp` special tokens for use in `new RegExp`.
 
 - <code>TypeError</code> If string is null or undefined or not coercible.
 
-
-| Param | Type | Description |
-| --- | --- | --- |
+| Param  | Type                | Description               |
+| ------ | ------------------- | ------------------------- |
 | string | <code>string</code> | The string to be escaped. |
 
-**Example**  
-```js
-var regexpEscape = require('regexp-escape-x');
+**Example**
 
-var str = 'hello. how are you?';
-var regex = new RegExp(regexpEscape(str), 'g');
-String(regex); // '/hello\. how are you\?/g'
+```js
+import regexpEscape from 'regexp-escape-x';
+
+const str = 'hello. how are you?';
+const regex = new RegExp(regexpEscape(str), 'g');
+console.log(String(regex)); // '/hello\. how are you\?/g'
 ```
