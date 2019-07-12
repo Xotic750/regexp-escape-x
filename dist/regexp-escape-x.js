@@ -1,13 +1,14 @@
 /*!
 {
+  "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-present",
-  "date": "2019-07-10T20:07:57.153Z",
+  "date": "2019-07-12T14:17:51.627Z",
   "describe": "",
   "description": "ECMAScript proposed RegExp.escape.",
   "file": "regexp-escape-x.js",
-  "hash": "d84fb5bcfbe53bde8644",
+  "hash": "e1007bf111f18329b2b5",
   "license": "MIT",
-  "version": "3.0.0"
+  "version": "3.0.1"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -119,7 +120,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -129,328 +130,8 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = regExpEscape;
-
-var _requireCoercibleToStringX = _interopRequireDefault(__webpack_require__(1));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var syntaxChars = /[\^$\\.*+?()[\]{}|]/g;
-var _ref = '',
-    replace = _ref.replace;
-/**
- * Method to safely escape `RegExp` special tokens for use in `new RegExp`.
- *
- * @param {string} string - The string to be escaped.
- * @throws {TypeError} If string is null or undefined or not coercible.
- * @returns {string} The escaped string.
- */
-
-function regExpEscape(string) {
-  return replace.call((0, _requireCoercibleToStringX.default)(string), syntaxChars, '\\$&');
-}
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * @file Requires an argument is corecible then converts using ToString.
- * @version 1.0.2
- * @author Xotic750 <Xotic750@gmail.com>
- * @copyright  Xotic750
- * @license {@link <https://opensource.org/licenses/MIT> MIT}
- * @module require-coercible-to-string-x
- */
-
-
-
-var requireObjectCoercible = __webpack_require__(2);
-var toStr = __webpack_require__(6);
-
-/**
- * This method requires an argument is corecible then converts using ToString.
- *
- * @param {*} value - The value to converted to a string.
- * @throws {TypeError} If value is null or undefined.
- * @returns {string} The value as a string.
- * @example
- * var requireCoercibleToString = require('require-coercible-to-string-x');
- *
- * requireCoercibleToString(); // TypeError
- * requireCoercibleToString(null); // TypeError
- * requireCoercibleToString(Symbol('')); // TypeError
- * requireCoercibleToString(Object.create(null)); // TypeError
- * requireCoercibleToString(1); // '1'
- * requireCoercibleToString(true); // 'true'
- */
-module.exports = function requireCoercibleToString(value) {
-  return toStr(requireObjectCoercible(value));
-};
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * @file ES6-compliant shim for RequireObjectCoercible.
- * @see {@link http://www.ecma-international.org/ecma-262/6.0/#sec-requireobjectcoercible|7.2.1 RequireObjectCoercible ( argument )}
- * @version 1.4.3
- * @author Xotic750 <Xotic750@gmail.com>
- * @copyright  Xotic750
- * @license {@link <https://opensource.org/licenses/MIT> MIT}
- * @module require-object-coercible-x
- */
-
-
-
-var isNil = __webpack_require__(3);
-
-/**
- * The abstract operation RequireObjectCoercible throws an error if argument
- * is a value that cannot be converted to an Object using ToObject.
- *
- * @param {*} value - The `value` to check.
- * @throws {TypeError} If `value` is a `null` or `undefined`.
- * @returns {string} The `value`.
- * @example
- * var RequireObjectCoercible = require('require-object-coercible-x');
- *
- * RequireObjectCoercible(); // TypeError
- * RequireObjectCoercible(null); // TypeError
- * RequireObjectCoercible('abc'); // 'abc'
- * RequireObjectCoercible(true); // true
- * RequireObjectCoercible(Symbol('foo')); // Symbol('foo')
- */
-module.exports = function RequireObjectCoercible(value) {
-  if (isNil(value)) {
-    throw new TypeError('Cannot call method on ' + value);
-  }
-
-  return value;
-};
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * @file Checks if `value` is `null` or `undefined`.
- * @version 1.4.2
- * @author Xotic750 <Xotic750@gmail.com>
- * @copyright  Xotic750
- * @license {@link <https://opensource.org/licenses/MIT> MIT}
- * @module is-nil-x
- */
-
-
-
-var isUndefined = __webpack_require__(4);
-var isNull = __webpack_require__(5);
-
-/**
- * Checks if `value` is `null` or `undefined`.
- *
- * @param {*} value - The value to check.
- * @returns {boolean} Returns `true` if `value` is nullish, else `false`.
- * @example
- * var isNil = require('is-nil-x');
- *
- * isNil(null); // => true
- * isNil(void 0); // => true
- * isNil(NaN); // => false
- */
-module.exports = function isNil(value) {
-  return isNull(value) || isUndefined(value);
-};
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
-*
-*	VALIDATE: undefined
-*
-*
-*	DESCRIPTION:
-*		- Validates if a value is undefined.
-*
-*
-*	NOTES:
-*		[1]
-*
-*
-*	TODO:
-*		[1]
-*
-*
-*	LICENSE:
-*		MIT
-*
-*	Copyright (c) 2014. Athan Reines.
-*
-*
-*	AUTHOR:
-*		Athan Reines. kgryte@gmail.com. 2014.
-*
-*/
-
-
-
-/**
-* FUNCTION: isUndefined( value )
-*	Validates if a value is undefined.
-*
-* @param {*} value - value to be validated
-* @returns {Boolean} boolean indicating whether value is undefined
-*/
-function isUndefined( value ) {
-	return value === void 0;
-} // end FUNCTION isUndefined()
-
-
-// EXPORTS //
-
-module.exports = isUndefined;
-
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-/**
- * lodash 3.0.0 (Custom Build) <https://lodash.com/>
- * Build: `lodash modern modularize exports="npm" -o ./`
- * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
- * Based on Underscore.js 1.7.0 <http://underscorejs.org/LICENSE>
- * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- * Available under MIT license <https://lodash.com/license>
- */
-
-/**
- * Checks if `value` is `null`.
- *
- * @static
- * @memberOf _
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is `null`, else `false`.
- * @example
- *
- * _.isNull(null);
- * // => true
- *
- * _.isNull(void 0);
- * // => false
- */
-function isNull(value) {
-  return value === null;
-}
-
-module.exports = isNull;
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * @file ES6-compliant shim for ToString.
- * @see {@link http://www.ecma-international.org/ecma-262/6.0/#sec-tostring|7.1.12 ToString ( argument )}
- * @version 1.4.5
- * @author Xotic750 <Xotic750@gmail.com>
- * @copyright  Xotic750
- * @license {@link <https://opensource.org/licenses/MIT> MIT}
- * @module to-string-x
- */
-
-
-
-var castString = __webpack_require__(7).String;
-var isSymbol = __webpack_require__(8);
-
-/**
- * The abstract operation ToString converts argument to a value of type String.
- *
- * @param {*} value - The value to convert to a string.
- * @throws {TypeError} If `value` is a Symbol.
- * @returns {string} The converted value.
- * @example
- * var $toString = require('to-string-x');
- *
- * $toString(); // 'undefined'
- * $toString(null); // 'null'
- * $toString('abc'); // 'abc'
- * $toString(true); // 'true'
- * $toString(Symbol('foo')); // TypeError
- * $toString(Symbol.iterator); // TypeError
- * $toString(Object(Symbol.iterator)); // TypeError
- * $toString(Object.create(null)); // TypeError
- */
-module.exports = function ToString(value) {
-  if (isSymbol(value)) {
-    throw new TypeError('Cannot convert a Symbol value to a string');
-  }
-
-  return castString(value);
-};
-
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * @file Constructors cached from literals.
- * @version 1.0.2
- * @author Xotic750 <Xotic750@gmail.com>
- * @copyright  Xotic750
- * @license {@link <https://opensource.org/licenses/MIT> MIT}
- * @module cached-constructors-x
- */
-
-
-
-/**
- * Constructors cached from literals.
- *
- * @type Object
- * @example
- * var constructors = require('cached-constructors-x');
- */
-module.exports = {
-  Array: [].constructor,
-  Boolean: true.constructor,
-  Function: function () {}.constructor,
-  Number: (0).constructor,
-  Object: {}.constructor,
-  RegExp: (/(?:)/).constructor,
-  String: ''.constructor
-};
-
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 var toStr = Object.prototype.toString;
-var hasSymbols = __webpack_require__(9)();
+var hasSymbols = __webpack_require__(1)();
 
 if (hasSymbols) {
 	var symToStr = Symbol.prototype.toString;
@@ -485,14 +166,14 @@ if (hasSymbols) {
 
 
 /***/ }),
-/* 9 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
 var origSymbol = global.Symbol;
-var hasSymbolSham = __webpack_require__(11);
+var hasSymbolSham = __webpack_require__(3);
 
 module.exports = function hasNativeSymbols() {
 	if (typeof origSymbol !== 'function') { return false; }
@@ -503,10 +184,10 @@ module.exports = function hasNativeSymbols() {
 	return hasSymbolSham();
 };
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2)))
 
 /***/ }),
-/* 10 */
+/* 2 */
 /***/ (function(module, exports) {
 
 var g;
@@ -532,7 +213,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 11 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -578,6 +259,107 @@ module.exports = function hasSymbols() {
 
 	return true;
 };
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/is-nil-x/dist/is-nil-x.esm.js
+/**
+ * Checks if `value` is `null` or `undefined`.
+ *
+ * @param {*} [value] - The value to check.
+ * @returns {boolean} Returns `true` if `value` is nullish, else `false`.
+ */
+function isNil(value) {
+  /* eslint-disable-next-line lodash/prefer-is-nil */
+  return value === null || typeof value === 'undefined';
+}
+
+
+// CONCATENATED MODULE: ./node_modules/require-object-coercible-x/dist/require-object-coercible-x.esm.js
+
+/**
+ * The abstract operation RequireObjectCoercible throws an error if argument
+ * is a value that cannot be converted to an Object using ToObject.
+ *
+ * @param {*} [value] - The `value` to check.
+ * @throws {TypeError} If `value` is a `null` or `undefined`.
+ * @returns {string} The `value`.
+ */
+
+function requireObjectCoercible(value) {
+  if (isNil(value)) {
+    throw new TypeError("Cannot call method on ".concat(value));
+  }
+
+  return value;
+}
+
+
+// EXTERNAL MODULE: ./node_modules/is-symbol/index.js
+var is_symbol = __webpack_require__(0);
+var is_symbol_default = /*#__PURE__*/__webpack_require__.n(is_symbol);
+
+// CONCATENATED MODULE: ./node_modules/to-string-x/dist/to-string-x.esm.js
+
+var ERROR_MESSAGE = 'Cannot convert a Symbol value to a string';
+var castString = ERROR_MESSAGE.constructor;
+/**
+ * The abstract operation ToString converts argument to a value of type String.
+ *
+ * @param {*} [value] - The value to convert to a string.
+ * @throws {TypeError} If `value` is a Symbol.
+ * @returns {string} The converted value.
+ */
+
+function ToString(value) {
+  if (is_symbol_default()(value)) {
+    throw new TypeError(ERROR_MESSAGE);
+  }
+
+  return castString(value);
+}
+
+
+// CONCATENATED MODULE: ./node_modules/require-coercible-to-string-x/dist/require-coercible-to-string-x.esm.js
+
+
+/**
+ * This method requires an argument is corecible then converts using ToString.
+ *
+ * @param {*} [value] - The value to converted to a string.
+ * @throws {TypeError} If value is null or undefined.
+ * @returns {string} The value as a string.
+ */
+
+function requireCoercibleToString(value) {
+  return ToString(requireObjectCoercible(value));
+}
+
+
+// CONCATENATED MODULE: ./dist/regexp-escape-x.esm.js
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return regExpEscape; });
+
+var syntaxChars = /[\^$\\.*+?()[\]{}|]/g;
+var _ref = '',
+    replace = _ref.replace;
+/**
+ * Method to safely escape `RegExp` special tokens for use in `new RegExp`.
+ *
+ * @param {string} string - The string to be escaped.
+ * @throws {TypeError} If string is null or undefined or not coercible.
+ * @returns {string} The escaped string.
+ */
+
+function regExpEscape(string) {
+  return replace.call(requireCoercibleToString(string), syntaxChars, '\\$&');
+}
+
 
 
 /***/ })
