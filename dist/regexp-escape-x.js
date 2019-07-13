@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-present",
-  "date": "2019-07-12T14:17:51.627Z",
+  "date": "2019-07-13T02:06:04.725Z",
   "describe": "",
   "description": "ECMAScript proposed RegExp.escape.",
   "file": "regexp-escape-x.js",
   "hash": "e1007bf111f18329b2b5",
   "license": "MIT",
-  "version": "3.0.1"
+  "version": "3.0.2"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
