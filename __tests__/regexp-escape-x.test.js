@@ -1,6 +1,5 @@
 import regexpEscape from 'src/regexp-escape-x';
 
-/* eslint-disable-next-line compat/compat */
 const hasSymbol = typeof Symbol === 'function' && typeof Symbol('') === 'symbol';
 const ifSymbolIt = hasSymbol ? it : xit;
 
@@ -17,7 +16,6 @@ describe('regexpEscape', function() {
     }).toThrowErrorMatchingSnapshot();
 
     expect(function() {
-      /* eslint-disable-next-line no-void */
       regexpEscape(void 0);
     }).toThrowErrorMatchingSnapshot();
 
@@ -76,7 +74,7 @@ describe('regexpEscape', function() {
 
   ifSymbolIt('should throw for Symbol', function() {
     expect.assertions(2);
-    /* eslint-disable-next-line compat/compat */
+
     const sym = Symbol('foo');
     expect(function() {
       regexpEscape(sym);
