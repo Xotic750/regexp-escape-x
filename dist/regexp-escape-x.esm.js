@@ -10,8 +10,10 @@ var _ref = '',
  * @returns {string} The escaped string.
  */
 
-export default function regExpEscape(string) {
+var regExpEscape = function regExpEscape(string) {
   return replace.call(requireCoercibleToString(string), syntaxChars, '\\$&');
-}
+};
+
+export default regExpEscape;
 
 //# sourceMappingURL=regexp-escape-x.esm.js.map

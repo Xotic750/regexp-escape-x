@@ -10,6 +10,8 @@ const {replace} = '';
  * @throws {TypeError} If string is null or undefined or not coercible.
  * @returns {string} The escaped string.
  */
-export default function regExpEscape(string) {
+const regExpEscape = function regExpEscape(string) {
   return replace.call(requireCoercibleToString(string), syntaxChars, '\\$&');
-}
+};
+
+export default regExpEscape;

@@ -2,11 +2,11 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-present",
-  "date": "2019-07-16T21:02:10.971Z",
+  "date": "2019-07-17T13:06:16.435Z",
   "describe": "",
   "description": "ECMAScript proposed RegExp.escape.",
   "file": "regexp-escape-x.js",
-  "hash": "e1007bf111f18329b2b5",
+  "hash": "ad6c786fba13a9b94473",
   "license": "MIT",
   "version": "3.0.9"
 }
@@ -343,7 +343,6 @@ function requireCoercibleToString(value) {
 
 
 // CONCATENATED MODULE: ./dist/regexp-escape-x.esm.js
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return regExpEscape; });
 
 var syntaxChars = /[\^$\\.*+?()[\]{}|]/g;
 var _ref = '',
@@ -356,9 +355,11 @@ var _ref = '',
  * @returns {string} The escaped string.
  */
 
-function regExpEscape(string) {
+var regexp_escape_x_esm_regExpEscape = function regExpEscape(string) {
   return replace.call(requireCoercibleToString(string), syntaxChars, '\\$&');
-}
+};
+
+/* harmony default export */ var regexp_escape_x_esm = __webpack_exports__["default"] = (regexp_escape_x_esm_regExpEscape);
 
 
 
