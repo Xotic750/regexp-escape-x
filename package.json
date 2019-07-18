@@ -1,6 +1,6 @@
 {
   "name": "regexp-escape-x",
-  "version": "3.0.13",
+  "version": "3.0.14",
   "description": "ECMAScript proposed RegExp.escape.",
   "homepage": "https://github.com/Xotic750/regexp-escape-x",
   "author": {
@@ -48,7 +48,7 @@
     "url": "https://github.com/Xotic750/regexp-escape-x/issues"
   },
   "dependencies": {
-    "require-coercible-to-string-x": "^2.0.12"
+    "require-coercible-to-string-x": "^2.0.13"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
