@@ -2,7 +2,7 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-present",
-  "date": "2019-08-13T12:47:36.766Z",
+  "date": "2019-08-14T13:40:37.446Z",
   "describe": "",
   "description": "ECMAScript proposed RegExp.escape.",
   "file": "regexp-escape-x.js",
