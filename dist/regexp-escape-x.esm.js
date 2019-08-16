@@ -1,7 +1,8 @@
 import requireCoercibleToString from 'require-coercible-to-string-x';
+import methodize from 'simple-methodize-x';
 var syntaxChars = /[\^$\\.*+?()[\]{}|]/g;
-var _ref = '',
-    replace = _ref.replace;
+var REPLACE_PATTERN = '\\$&';
+var methodizedReplace = methodize(REPLACE_PATTERN.replace);
 /**
  * Method to safely escape `RegExp` special tokens for use in `new RegExp`.
  *
@@ -11,7 +12,7 @@ var _ref = '',
  */
 
 var regExpEscape = function regExpEscape(string) {
-  return replace.call(requireCoercibleToString(string), syntaxChars, '\\$&');
+  return methodizedReplace(requireCoercibleToString(string), syntaxChars, REPLACE_PATTERN);
 };
 
 export default regExpEscape;

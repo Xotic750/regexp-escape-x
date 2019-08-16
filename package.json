@@ -50,7 +50,8 @@
     "url": "https://github.com/Xotic750/regexp-escape-x/issues"
   },
   "dependencies": {
-    "require-coercible-to-string-x": "^2.1.0"
+    "require-coercible-to-string-x": "^2.1.0",
+    "simple-methodize-x": "^1.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",

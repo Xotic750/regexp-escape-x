@@ -1,7 +1,9 @@
 import requireCoercibleToString from 'require-coercible-to-string-x';
+import methodize from 'simple-methodize-x';
 
 const syntaxChars = /[\^$\\.*+?()[\]{}|]/g;
-const {replace} = '';
+const REPLACE_PATTERN = '\\$&';
+const methodizedReplace = methodize(REPLACE_PATTERN.replace);
 
 /**
  * Method to safely escape `RegExp` special tokens for use in `new RegExp`.
@@ -11,7 +13,7 @@ const {replace} = '';
  * @returns {string} The escaped string.
  */
 const regExpEscape = function regExpEscape(string) {
-  return replace.call(requireCoercibleToString(string), syntaxChars, '\\$&');
+  return methodizedReplace(requireCoercibleToString(string), syntaxChars, REPLACE_PATTERN);
 };
 
 export default regExpEscape;
